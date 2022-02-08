@@ -1,0 +1,13 @@
+---
+# this comment is a hack
+version: '3'
+services:
+  iperf3:
+    image: mlabbe/iperf3
+    ports:
+      - 5201:5201
+    restart: unless-stopped
+    deploy:
+      restart_policy:
+        condition: on-failure
+    network_mode: "bridge"
